@@ -668,7 +668,7 @@ function wp_get_nav_menu_items( $menu, $args = array() ) {
 
 	$items = get_objects_in_term( $menu->term_id, 'nav_menu' );
 
-	if ( is_wp_error( $items ) ) {
+ 	if ( is_wp_error( $items ) ) {
 		return false;
 	}
 

@@ -177,7 +177,11 @@ class Walker_Nav_Menu extends Walker {
 		} else {
 			$atts['rel'] = $item->xfn;
 		}
-		$atts['href']         = ! empty( $item->url ) ? $item->url : '';
+        if($args->theme_location !== "top-menu") {
+		    $atts['href']         = ! empty( $item->url ) ? $item->url : '';
+        }else {
+            $atts['href']         = ! empty( $item->url ) ? $item->url . '?top-menu=true' : '';
+        }
 		$atts['aria-current'] = $item->current ? 'page' : '';
 		$atts['class'] ='header-menu-item';
 
