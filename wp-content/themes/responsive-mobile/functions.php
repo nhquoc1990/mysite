@@ -386,3 +386,11 @@ function responsive_pro_categorylist_validate( ) {
 		wp_enqueue_style( 'rm-gutenberg-blocks', get_stylesheet_directory_uri() . '/css/gutenberg-blocks.css', array(), '1.0' );
 	}
 	add_action( 'enqueue_block_editor_assets', 'responsive_mobile_block_styles' );
+
+    function register_my_session(){
+        if( ! session_id() ) {
+            session_start();
+        }
+    }
+
+    add_action('init', 'register_my_session');

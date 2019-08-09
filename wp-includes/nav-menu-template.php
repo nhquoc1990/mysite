@@ -138,6 +138,22 @@ function wp_nav_menu( $args = array() ) {
 		$menu_items = wp_get_nav_menu_items( $menu->term_id, array( 'update_post_term_cache' => false ) );
 	}
 
+    /*
+     * If context menu is header menu, we filter list menu, only child of top
+     * menu clicked is show
+     * @author Rick Nguyen
+     */
+    $filter_menu_items = [];
+	if($args->theme_location !== "top-menu") {
+	    foreach ($menu_items as $item){
+            if(is_child_of_top_menu($item->object_id)){
+                array_push($filter_menu_items,$item);
+            };
+        }
+        $menu_items = $filter_menu_items;
+    }
+
+
 	/*
 	 * If no menu was found:
 	 *  - Fall back (if one was specified), or bail.
@@ -210,9 +226,6 @@ function wp_nav_menu( $args = array() ) {
 	$sorted_menu_items = apply_filters( 'wp_nav_menu_objects', $sorted_menu_items, $args );
 
 	$items .= walk_nav_menu_tree( $sorted_menu_items, $args->depth, $args );
-	global $wpdb;
-	$user_count = $wpdb->get_row( "SELECT * FROM $wpdb->posts where ID = 71" );
-	var_dump($user_count);
 	unset( $sorted_menu_items );
 
 	// Attributes

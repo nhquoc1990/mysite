@@ -21,6 +21,20 @@
  */
 function get_header($name = null)
 {
+    /**
+     * if context is top menu clicking then register session variable to remember topmenu clicked.
+     *
+     *
+     * @author Rick Nguyen
+     */
+    $is_top_menu = $_GET['top-menu'];
+    if($is_top_menu === "true") {
+        $url = get_permalink();
+        $parts[] = explode("/", $url);
+        $parts = $parts[0];
+        $session_top_menu = $parts[sizeof($parts) - 2];
+        $_SESSION['$session_top_menu'] = $session_top_menu;
+    }
 	/**
 	 * Fires before the header template file is loaded.
 	 *
