@@ -1143,11 +1143,23 @@ li {
 .container:after, .content-area:after, #featured-area:after, .home-widgets:after, #footer #footer-wrapper:after {
   clear: both;
 }
-@media (min-width: 1200px) {
+@media (max-width: 1600px) {
+  .container, .content-area, #featured-area, .home-widgets, #footer #footer-wrapper {
+    width: 1500px;
+  }
+}
+
+@media (max-width: 1200px) {
   .container, .content-area, #featured-area, .home-widgets, #footer #footer-wrapper {
     width: 1300px;
   }
 }
+@media (max-width: 900px) {
+  .container, .content-area, #featured-area, .home-widgets, #footer #footer-wrapper {
+    width: 900px;
+  }
+}
+
 @media (min-width: 1200px) {
 .banner{
 	height: 185px;
