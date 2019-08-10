@@ -1371,7 +1371,7 @@ li {
   }
   #main-navigation .main-nav ul li a:hover {
     text-decoration: none;
-    color: #999999;
+    color: white;
   }
   #main-navigation .main-nav ul li > ul {
     position: absolute;
@@ -3391,3 +3391,42 @@ article[content-single]{
 .item-sidebar-icon{
 	height: 10px;
 }
+.dropbtn {
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-bottom: 5px;
+
+}
+
+.dropdown-content a {
+    color: black !important;
+    text-decoration: none;
+    display: block;
+    margin : 0 !important;
+    height: 30px !important;
+    font-family: Open Sans, sans-serif; !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: rgb(49, 49, 49) !important;
+    padding-left: 15px;
+    padding-right: 5px;
+
+}
+
+.dropdown-content a:hover {color: #3C5B9B !important;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: cadetblue;;}
