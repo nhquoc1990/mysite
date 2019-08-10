@@ -6918,7 +6918,7 @@ function get_available_post_mime_types( $type = 'attachment' ) {
  */
 function is_child_of_top_menu($object_id){
     global $wpdb;
-    $data = get_all_posts();
+    $data = get_all_posts_type_menu();
     $parent_id = get_parent_id_from_array($data, $object_id);
     $session_top_menu = $_SESSION['$session_top_menu'];
     while ($parent_id != 0) {
@@ -6936,10 +6936,10 @@ function is_child_of_top_menu($object_id){
  * @author Rick Nguyen
  * @return all post indatabase
  */
-function get_all_posts(){
+function get_all_posts_type_menu(){
     global $wpdb;
     $data  = $wpdb->get_results(
-        "select * from $wpdb->posts"
+        "select * from $wpdb->posts where post_type in ('nav_menu_item', 'page'); "
     );
     return $data;
 }
