@@ -128,7 +128,7 @@ function responsive_mobile_js() {
 	$template_directory_uri = get_template_directory_uri();
 
 	// JS at the bottom for fast page loading.
-	wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/js/responsive-scripts' . $suffix . '.js', array( 'jquery' ), '1.2.5', true );
+	wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/js/responsive-scripts' . '.js', array( 'jquery' ), '1.2.5', true );
 
 	if ( $is_IE && ! wp_script_is( 'tribe-placeholder' ) ) {
 		wp_enqueue_script( 'jquery-placeholder', $template_directory_uri . '/core/js/jquery-placeholder' . $suffix . '.js', array( 'jquery' ), '2.0.7', true );
