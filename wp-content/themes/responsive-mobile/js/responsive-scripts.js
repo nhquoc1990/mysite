@@ -1206,6 +1206,7 @@ function alert_show(variable){
 var first_state = true;
 var init_top = 0;
 $(".dropdown-content a").mouseenter(function(e){
+    $(".dropdown").css("background-color" , "transparent");
 	var id = $(this).attr('id');
 	id = "hidden-sub-sub-menu-" + id;
 	var dropdown = $("#" + id);
@@ -1282,7 +1283,6 @@ $(".dropbtn").mouseleave(function (e) {
 	}
 	if(parent != null){
 		$(this).show();
-		$(".dropdown").css("background-color" , "cadetblue");
 	}else{
 		$(".dropdown-content").hide();
 		$(".sub-dropdown-content").hide();
