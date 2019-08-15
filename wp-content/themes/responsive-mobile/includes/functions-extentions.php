@@ -127,18 +127,23 @@ if ( !function_exists( 'responsive_mobile_breadcrumb_lists' ) ) {
 						$html_output .= $delimiter . $before . get_the_title() . $after;
 					}
 				} else {
-					$cat  = get_the_category();
-					$cat  = $cat[0];
-					$cats = get_category_parents( $cat, true, $delimiter );
-					if ( 0 == $show['current'] ) {
-						$cats = preg_replace( "#^(.+)$delimiter$#", "$1", $cats );
-					}
-					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
-					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
-					$html_output .= $cats;
-					if ( 1 == $show['current'] ) {
-						$html_output .= $before . get_the_title() . $after;
-					}
+					$breadcrumbs = array();
+                    while( $parent_id ) {
+                        $page_child    = get_page( $parent_id );
+                        $breadcrumbs[] = sprintf( $link, get_permalink( $page_child->ID ), get_the_title( $page_child->ID ) );
+                        $post_parent_page = get_post_meta($page_child->ID,"post_page_parent", true);
+                        $parent_id   = $post_parent_page !== "" ? $post_parent_page : $page_child->post_parent;
+                    }
+                    $breadcrumbs = array_reverse( $breadcrumbs );
+                    for( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
+                        $html_output .= $breadcrumbs[$i];
+                        if( $i != count( $breadcrumbs ) - 1 ) {
+                            $html_output .= $delimiter;
+                        }
+                    }
+                    if( 1 == $show['current'] ) {
+                        $html_output .= $delimiter . $before . get_the_title() . $after;
+                    }
 				}
 
 			} elseif ( !is_single() && !is_page() && !is_404() && 'post' != get_post_type() ) {
