@@ -52,6 +52,12 @@ require $template_directory . '/core/tha-theme-hooks.php';
 //require $template_directory . '/core/functions-demodata.php';
 require $template_directory . '/includes/responsive-hooks.php';
 
+
+/**
+ * Support THA post hooks through Responsives own functions.
+ */
+require $template_directory . '/core/post.php';
+
 /**
  * Theme Upsell
  */

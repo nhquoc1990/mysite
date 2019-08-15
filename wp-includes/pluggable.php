@@ -2744,7 +2744,6 @@ if ( ! function_exists( 'wp_text_diff' ) ) :
 endif;
 
 
-require_once "custom-hook/wp-includes/post.php";
 require_once "custom-hook/wp-includes/general-template.php";
 
 
