@@ -530,9 +530,19 @@ function responsive_pro_categorylist_validate( ) {
         $item_output .= '</div>';
         $item_output .= '<div class="dropdown-content">';
         foreach ($children as $child){
-            $item_output .= '<a href="' . $child->guid . '"> ' . $child->post_title . '</a>';
+            $item_output .= '<a id="'. $child->ID .'" href="' . $child->guid . '"> ' . $child->post_title . '</a>';
+            $item_output .= '<div id="hidden-sub-sub-menu-' . $child->ID .'"class="hidden-sub-sub-memu">';
+            $query = new WP_Query(array("post_type" => "post", "meta_key" => "post_page_parent", "meta_value" => $child->ID));
+            $sub_sub_children = $query->posts;
+            foreach ($sub_sub_children as $subchild) {
+                $item_output .= '<a href="' . $subchild->guid . '"> ' . $subchild->post_title . '</a>';
+            }
+            $item_output .= '</div>';
         }
         $item_output .= '</div>';
+        $item_output .= '</div>';
+        $item_output .= '<div class="sub-dropdown-content" id="sub-dropdown-content">';
+
         $item_output .= '</div>';
         $item_output .= $args->after;
 
@@ -553,3 +563,12 @@ function responsive_pro_categorylist_validate( ) {
         return $item_output;
     }
     add_filter( 'walker_nav_menu_start_el', 'create_header_menu_submenu', 11, 4 );
+
+    function change_jquery_version() {
+        if (!is_admin()) {
+            wp_deregister_script('jquery');
+            wp_register_script('jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', false);
+            wp_enqueue_script('jquery');
+        }
+    }
+    add_action('init', 'change_jquery_version');

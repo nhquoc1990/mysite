@@ -3410,11 +3410,11 @@ article[content-single]{
     display: inline-block;
 }
 
-.dropdown-content {
+.dropdown-content, .sub-dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: max-content;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     padding-bottom: 5px;
@@ -3438,9 +3438,6 @@ article[content-single]{
 
 .dropdown-content a:hover {color: #3C5B9B !important;}
 
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: cadetblue;;}
 
 ul{
   list-style-type: none;
@@ -3449,3 +3446,26 @@ ul{
 .site-content{
 
 }
+.hidden-sub-sub-memu{
+  display: none;
+}
+.sub-dropdown-content{
+  display: none;
+}
+
+.sub-dropdown-content a {
+  color: black !important;
+  text-decoration: none;
+  display: block;
+  margin : 0 !important;
+  height: 30px !important;
+  font-family: Open Sans, sans-serif; !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: rgb(49, 49, 49) !important;
+  padding-left: 15px;
+  padding-right: 5px;
+
+}
+
+.sub-dropdown-content a:hover {color: #3C5B9B !important;}

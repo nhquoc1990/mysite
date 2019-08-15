@@ -1195,3 +1195,102 @@ jQuery(document).ready(function ($) {
 		return false;
 	});
 });
+/**
+ * Display object or varable
+ * @Author Rick Nguyen
+ */
+function alert_show(variable){
+	alert(JSON.stringify(variable));
+}
+
+var state = false;
+$(".dropdown-content a").mouseenter(function(e){
+	var id = $(this).attr('id');
+	id = "hidden-sub-sub-menu-" + id;
+	var dropdown = $("#" + id);
+	var html = dropdown.html();
+	var sub
+	var sub_dropdown = $("#sub-dropdown-content");
+	sub_dropdown.html($("#" + id).html());
+	sub_dropdown.show();
+	sub_dropdown.css('left', dropdown.css('width'));
+	sub_dropdown.css('position', 'absolute');
+})
+$(".sub-dropdown-content").mouseenter(function(){
+	hold_on = true;
+	var dropdown = $(".dropdown-content");
+	dropdown.show();
+});
+
+$(".dropdown-content").mouseleave(function(e){
+	var element = document.elementFromPoint(e.pageX, e.pageY);
+	var parent = element.closest('.sub-dropdown-content');
+	if( parent == null){
+		parent = element.closest('.dropdown');
+	}
+	if(parent == null){
+		if(element.className == "dropbtn") {
+			parent = true;
+		}
+	}
+	if(parent != null){
+		$(this).show();
+		$(".dropdown").css("background-color" , "cadetblue");
+	}else{
+		$(this).hide();
+		$(".sub-dropdown-content").hide();
+	}
+})
+
+$(".dropdown").mouseenter(function (e) {
+	var element = document.elementFromPoint(e.pageX, e.pageY);
+	var parent = element.closest('.sub-dropdown-content');
+	var dropdown_content = $(".dropdown-content");
+	dropdown_content.show();
+	$(".dropdown").css("background-color" , "cadetblue");
+});
+
+$(".dropbtn").mouseleave(function (e) {
+	var element = document.elementFromPoint(e.pageX, e.pageY);
+	var parent = element.closest('.sub-dropdown-content');
+	if( parent == null){
+		parent = element.closest('.dropdown');
+	}
+	if(parent == null){
+		if(element.className == "dropbtn" ) {
+			parent = true;
+		}
+	}
+	if(parent != null){
+		$(this).show();
+		$(".dropdown").css("background-color" , "cadetblue");
+	}else{
+		$(".dropdown-content").hide();
+		$(".sub-dropdown-content").hide();
+		$(".dropdown").css("background-color" , "transparent");
+	}
+	state = true;
+
+});
+
+
+$(".sub-dropdown-content").mouseleave(function(e) {
+
+	var element = document.elementFromPoint(e.pageX, e.pageY);
+	var parent = element.closest('.sub-dropdown-content');
+	if( parent == null){
+		parent = element.closest('.dropdown');
+	}
+	if(parent == null){
+		if(element.className == "dropbtn") {
+			parent = true;
+		}
+	}
+	if(parent != null){
+		$(this).show();
+	}else{
+		$(this).hide();
+		$(".dropdown-content").hide();
+		$(".dropdown").css("background-color" , "transparent");
+	}
+});
