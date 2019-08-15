@@ -53,8 +53,7 @@ switch ( $layout ) {
 <?php responsive_mobile_widgets_before(); ?>
 <div id="widgets" class="widget-area default-sidebar" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 	<?php responsive_mobile_widgets(); ?>
-	<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
-		<?php
+        <?php
         if(!is_page()) {
             $current_post_id = get_the_ID();
             $parent_id = get_post_meta($current_post_id, "post_page_parent",true);
@@ -84,15 +83,15 @@ switch ( $layout ) {
                 echo '</aside>';
             }
         }
-		?>
-		<aside id="archives" class="widget-wrapper hidden-by-quoc" >
-			<h3 class="widget-title"><?php _e( 'In Archive', 'responsive-mobile' ); ?></h3>
-			<ul>
-				<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-			</ul>
-		</aside>
+        ?>
+        <aside id="archives" class="widget-wrapper hidden-by-quoc" >
+            <h3 class="widget-title"><?php _e( 'In Archive', 'responsive-mobile' ); ?></h3>
+            <ul>
+                <?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+            </ul>
+        </aside>
 
-	<?php endif; // end sidebar widget area ?>
+    <?php dynamic_sidebar( 'main-sidebar' ) ; ?>
 	<?php responsive_mobile_widgets_end(); ?>
 </div><!-- #default-sidebar -->
 <?php responsive_mobile_widgets_after(); ?>

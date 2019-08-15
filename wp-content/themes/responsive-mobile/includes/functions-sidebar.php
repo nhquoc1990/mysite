@@ -26,8 +26,8 @@ function responsive_mobile_widgets_init() {
 		'name'          => __( 'Main Sidebar', 'responsive-mobile' ),
 		'description'   => __( 'Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates', 'responsive-mobile' ),
 		'id'            => 'main-sidebar',
-		'before_title'  => '<div class="widget-title"><h3>',
-		'after_title'   => '</h3></div>',
+		'before_title'  => '<div class="widget-title"><h4>',
+		'after_title'   => '</h4></div>',
 		'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 		'after_widget'  => '</div>'
 	) );
