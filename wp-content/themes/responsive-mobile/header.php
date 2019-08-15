@@ -49,7 +49,7 @@ if ( ! defined( 'WPINC' ) ) {
 <?php responsive_mobile_container_top(); ?>
 <?php if ( has_nav_menu( 'top-menu', 'responsive-mobile' ) ) { ?>
 	<div id="top-menu-container" class="container-full-width">
-		<nav id="top-menu" class="container" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		<nav id="top-menu" class="container-header" itemscope itemtype="http://schema.org/SiteNavigationElement">
 		<div style="float : left" class="logo-contrainer"> <img class="site-logo" src="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/2019/08/cropped-logo-1.png"></div>
 			<?php wp_nav_menu(
 				array(
@@ -67,14 +67,16 @@ if ( ! defined( 'WPINC' ) ) {
         <div id="header_section">
 	<header id="header" class="container-full-width site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 		<?php responsive_mobile_header_top(); ?>
-		<div class="container">
-			<div class="header-row banner">
-				<div id="site-branding">
-					<?php responsive_mobile_header_one(); ?>
-				</div>
-				<div id="secondary-header">
-					<?php responsive_mobile_header_two(); ?>
-				</div>
+		<div class="container-header">
+			<div class="header-row" >
+                    <img src="<?php apply_url("/wp-content/uploads/2019/08/banner.jpg")  ?>  " class="top-banner">
+
+<!--				<div id="site-branding">-->
+<!--					--><?php //responsive_mobile_header_one(); ?>
+<!--				</div>-->
+<!--				<div id="secondary-header">-->
+<!--					--><?php //responsive_mobile_header_two(); ?>
+<!--				</div>-->
 			</div>
 		</div>
 
@@ -83,7 +85,7 @@ if ( ! defined( 'WPINC' ) ) {
 <?php responsive_mobile_header_end(); ?>
 
 	<div id="main-menu-container" class="container-full-width">
-		<div id="main-menu" class="container">
+		<div id="main-menu" class="container-header">
 			<nav id="main-navigation" class="site-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 				<div id="mobile-current-item"><?php responsive_mobile_menu_title(); ?></div>
 				<button id="mobile-nav-button"><span class="accessibile-label"><?php _e( 'Mobile menu toggle', 'responsive-mobile' ); ?></span></button>
