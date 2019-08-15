@@ -2246,9 +2246,10 @@ main#main.sitemap .sitemap-widgets:after {
 }
 
 .widget-wrapper {
-  padding: 10px 0 15px 0;
-  background-color: #FFFFFF;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    padding: 10px 0 15px 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
 }
 .widget-wrapper>ul{
   padding-left: 15px !important;
@@ -2259,7 +2260,6 @@ main#main.sitemap .sitemap-widgets:after {
   width: 100%;
 }
 .widget_calendar #wp-calendar caption {
-  margin-bottom: 20px;
 }
 .widget_calendar #wp-calendar thead tr th {
   padding-bottom: 10px;
@@ -3508,3 +3508,17 @@ ul{
 }
 
 .sub-dropdown-content a:hover {color: #3C5B9B !important;}
+.widget-title h4{
+    margin: 0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+.widget-title{
+    text-align: center;
+}
+#wp-calendar caption{
+    text-align: center;
+    margin: 0;
+    padding-top : 0;
+    font-weight: bold;
+}

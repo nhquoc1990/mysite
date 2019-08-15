@@ -522,13 +522,13 @@ function responsive_pro_categorylist_validate( ) {
         $children = get_posts(array("post_type" => "page", "post_status" => "publish", "post_parent" => $object_post->ID ,"order" => "ASC"));
 
         $item_output  = $args->before;
-        $item_output .= '<div class="dropdown">';
+        $item_output .= '<div class="dropdown" id="dropdown-' . $item->object_id .'">';
         $item_output .= '<div class="dropbtn">';
         $item_output .= '<a' . $attributes . '>';
         $item_output .= $args->link_before . $title . $args->link_after;
         $item_output .= '</a>';
         $item_output .= '</div>';
-        $item_output .= '<div class="dropdown-content">';
+        $item_output .= '<div class="dropdown-content" id="dropdown-content-' . $item->object_id .'">';
         foreach ($children as $child){
             $item_output .= '<a id="'. $child->ID .'" href="' . $child->guid . '"> ' . $child->post_title . '</a>';
             $item_output .= '<div id="hidden-sub-sub-menu-' . $child->ID .'"class="hidden-sub-sub-memu">';
@@ -541,7 +541,7 @@ function responsive_pro_categorylist_validate( ) {
         }
         $item_output .= '</div>';
         $item_output .= '</div>';
-        $item_output .= '<div class="sub-dropdown-content" id="sub-dropdown-content">';
+        $item_output .= '<div class="sub-dropdown-content" id="sub-dropdown-content-' . $item->object_id .'">';
 
         $item_output .= '</div>';
         $item_output .= $args->after;
