@@ -324,3 +324,49 @@ function responsive_mobile_footer_after() {
 function responsive_mobile_theme_options() {
 	do_action( 'responsive_mobile_theme_options' );
 }
+
+
+add_action( 'admin_init', 'add_post_meta_box' );
+function add_post_meta_box() {
+    add_meta_box( 'post_page_parent_meta_box','Page Parent','display_post_page_parent_box','post', 'normal', 'high' );
+}
+
+
+function display_post_page_parent_box( $post ) {
+    $post_tags = (int)get_post_meta( $post->ID, 'post_page_parent', true );
+    $page_list = get_pages();
+    ?>
+    <table>
+
+        <tr>
+            <td style="width: 150px">Parent Page</td>
+            <td>
+                <select style="width: 300px" name="post_page_parent">
+                    <?php
+                    foreach ( $page_list as $page ) {	?>
+                        <option value="<?php echo $page->ID;?>" <?php if( $post_tags == $page->ID ) echo "selected" ?> >
+                            <?php echo $page->post_title; ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </td>
+        </tr>
+
+    </table>
+<?php }
+
+/**
+ * Save meta data field
+ */
+add_action( 'save_post','save_post_page_parent__fields', 10, 2 );
+function save_post_page_parent__fields( $post_id,$post ) {
+    // Check post type for post
+    if ( $post->post_type == 'post' ) {
+
+        // Store data in post meta table if present in post data
+        if ( isset( $_POST['post_page_parent'] ) &&	$_POST['post_page_parent'] != '' ) {
+            update_post_meta( $post_id, 'post_page_parent',$_POST['post_page_parent'] );
+        }
+
+    }
+}

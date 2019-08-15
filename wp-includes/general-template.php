@@ -681,15 +681,6 @@ function bloginfo($show = '')
 	echo get_bloginfo($show, 'display');
 }
 
-function apply_url($uri = '')
-{
-	$uri = trim($uri);
-	if (strcmp(mb_substr($uri, 0, 1), "/")) {
-		$uri = "/".$uri;
-	}
-	echo get_bloginfo('url', 'display') . $uri;
-}
-
 /**
  * Retrieves information about the current site.
  *

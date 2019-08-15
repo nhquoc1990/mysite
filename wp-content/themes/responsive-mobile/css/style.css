@@ -3305,6 +3305,17 @@ div .wp-block-cover-image-text{
 .post-entry dd{
 	margin-left: 1.5em;
 }
+.post-entry{
+
+}
+#same-post-parent-table{
+    width: 500px;
+    margin: 0 auto;
+}
+#same-post-parent-table h4{
+    text-align: center;
+
+}
 .banner{
 	background-image: url("../../../../wp-content/uploads/2019/08/banner.jpg");
 	background-repeat: no-repeat;
@@ -3430,3 +3441,11 @@ article[content-single]{
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: cadetblue;;}
+
+ul{
+  list-style-type: none;
+}
+
+.site-content{
+
+}

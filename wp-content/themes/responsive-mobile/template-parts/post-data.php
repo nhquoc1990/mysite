@@ -29,9 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
 			$by_line_categories = apply_filters( 'responsive_mobile_by_line_categories', 1 );
 			if ( $categories_list && responsive_mobile_categorized_blog() && $by_line_categories ) :
 		?>
-		<span class="cat-links">
-			<?php printf( __( 'Posted in %1$s', 'responsive-mobile' ), $categories_list ); ?>
-		</span><br/>
+		
 		<?php endif; // End if categories ?>
 
 		<?php
