@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 get_header(); ?>
 
-	<div id="content-blog" class="content-area">
+	<div id="content-blog" class="content-area container">
 			<main id="main" class="site-main" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
 
 				<?php do_action( 'responsive_mobile_blog_title' ); ?>

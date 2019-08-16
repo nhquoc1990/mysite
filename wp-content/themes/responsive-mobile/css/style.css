@@ -51,43 +51,13 @@
 #main-navigation .main-nav > ul {
     padding-top: 35px;
 }
-@media (max-width: 2000px) {
-    .content-area, #featured-area, .home-widgets, #footer #footer-wrapper {
-        width: 1800px;
-    }
-    .container-header{
-        width: 1745px;
-        margin: 0 80px;
+
+@media (min-width: 992px) {
+    #mobile-nav-button {
+        display: none;
     }
 }
 
-
-@media (max-width: 1600px) {
-    .content-area, #featured-area, .home-widgets, #footer #footer-wrapper {
-        width: 1500px;
-    }
-    .container-header{
-        width: 1500px;
-        margin: 0 60px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .container-header, .content-area, #featured-area, .home-widgets, #footer #footer-wrapper {
-        width: 1300px;
-    }
-    .container-header{
-        width: 1300px;
-    }
-}
-@media (max-width: 900px) {
-    .container-header, .content-area, #featured-area, .home-widgets, #footer #footer-wrapper {
-        width: 900px;
-    }
-    .container-header{
-        width: 900px;
-    }
-}
 
 @media (min-width: 992px) {
     #mobile-nav-button {
@@ -1437,7 +1407,7 @@ li {
 #top-menu-container .top-menu {
   float: right;
   margin: 0;
-  padding: 10px;
+  padding: 10px 0px 10px 10px;
 }
 #top-menu-container .top-menu li {
   float: left;
@@ -1758,7 +1728,6 @@ main #featured-content .call-to-action .cta-button:hover, main #featured-image .
 #main {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
   padding-right: 15px;
 }
 
@@ -2041,7 +2010,6 @@ object {
 main#main {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 992px) {
@@ -2127,7 +2095,6 @@ main#main.sitemap .sitemap-widgets:after {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
-  padding-right: 15px;
 }
 @media (min-width: 992px) {
   .default-sidebar, .gallery-sidebar, .right-sidebar {

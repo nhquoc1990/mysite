@@ -20,8 +20,8 @@ if ( ! defined( 'WPINC' ) ) {
 
 get_header(); ?>
 
-	<div id="content" class="content-area">
-			<main id="main" class="site-main" role="main">
+	<div id="content" class="content-area container ">
+			<main id="main" class="site-main " role="main">
 
 				<?php get_template_part( 'template-parts/loop-header' ); ?>
 

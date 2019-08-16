@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 get_header(); ?>
 
-	<div id="content" class="content-area">
+	<div id="content" class="content-area container">
 		<main id="main" class="site-main" role="main">
 
 			<?php if ( have_posts() ) : ?>
